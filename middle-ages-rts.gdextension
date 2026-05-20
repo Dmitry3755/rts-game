@@ -1,0 +1,8 @@
+[configuration]
+
+entry_symbol = "middle_ages_rts_library_init"
+compatibility_minimum = "4.6"
+
+[libraries]
+
+windows.debug.x86_64 = "res://.build/middle_ages_rts.dll"

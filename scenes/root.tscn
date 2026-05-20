@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://1dhvm2e3tamw"]
+
+[ext_resource type="Texture2D" uid="uid://cf37t40lew8be" path="res://assets/rocky_terrain_02_diff_4k.jpg" id="1_j5px3"]
+[ext_resource type="PackedScene" uid="uid://nc714x2b7rwu" path="res://scenes/unit/unit.tscn" id="2_twpsu"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7up8o"]
+size = Vector2(100, 100)
+
+[sub_resource type="Skin" id="Skin_j5px3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twpsu"]
+albedo_texture = ExtResource("1_j5px3")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_twpsu"]
+size = Vector3(100, 0.1, 100)
+
+[node name="Root" type="Root" unique_id=263619469]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1864486258]
+
+[node name="CameraController" type="CameraController" parent="." unique_id=22044188]
+
+[node name="Camera3D" type="Camera3D" parent="CameraController" unique_id=1978598393]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 15, 15)
+current = true
+fov = 1.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2138116240]
+transform = Transform3D(0.38590613, 0.652333, -0.65233296, 0, 0.7071068, 0.70710677, 0.9225382, -0.27287683, 0.2728768, 0, 30, 60)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1655903974]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="GroundSurface" type="GroundSurface" parent="." unique_id=1936576673]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GroundSurface" unique_id=542382500]
+lod_bias = 0.001
+mesh = SubResource("PlaneMesh_7up8o")
+skin = SubResource("Skin_j5px3")
+surface_material_override/0 = SubResource("StandardMaterial3D_twpsu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundSurface" unique_id=220172918]
+shape = SubResource("BoxShape3D_twpsu")
+
+[node name="Unit" parent="." unique_id=796826453 instance=ExtResource("2_twpsu")]
