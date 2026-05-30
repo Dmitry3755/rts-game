@@ -40,6 +40,7 @@ namespace godot
 
             void _on_screen_full_() { setWindowMode(DisplayServer::WindowMode::WINDOW_MODE_FULLSCREEN); };
             void _on_screen_windowed_() { setWindowMode(DisplayServer::WindowMode::WINDOW_MODE_WINDOWED); };
+            void _on_screen_maximized_() { setWindowMode(DisplayServer::WindowMode::WINDOW_MODE_MAXIMIZED); };
             void _on_screen_full_exclusive_() { setWindowMode(DisplayServer::WindowMode::WINDOW_MODE_EXCLUSIVE_FULLSCREEN); };
 
         protected:

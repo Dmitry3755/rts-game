@@ -27,11 +27,10 @@ namespace godot
 	private:
 		Camera3D *camera = nullptr;
 
-		float moveSpeed = 20.0f;
+		float moveSpeed = 40.0f;
 		float rotationSpeed = 1.5f;
 
-		int zoomSpeed = 5;
-		int edgeSize = 20;
+		int zoomSpeed = 10;
 	};
 
 }

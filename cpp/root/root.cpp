@@ -43,6 +43,10 @@ void Root::Display::_init_display_info_()
         UtilityFunctions::print("Root::Display::displayServer - ref is nullptr");
         return;
     }
+    _on_screen_maximized_();
+
+    Vector2i screenSize = displayServer->screen_get_size();
+    displayServer->window_set_size(screenSize);
     _update_display_info_();
 }
 
