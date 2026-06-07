@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://1dhvm2e3tamw"]
 
 [ext_resource type="Texture2D" uid="uid://cf37t40lew8be" path="res://assets/rocky_terrain_02_diff_4k.jpg" id="1_j5px3"]
-[ext_resource type="PackedScene" uid="uid://nc714x2b7rwu" path="res://scenes/unit/unit.tscn" id="2_twpsu"]
+[ext_resource type="PackedScene" uid="uid://dkgla0knyoqtt" path="res://scenes/unit/builder.tscn" id="2_twpsu"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7up8o"]
 size = Vector2(100, 100)
@@ -19,7 +19,7 @@ size = Vector3(100, 0.1, 100)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1864486258]
 
 [node name="CameraController" type="CameraController" parent="." unique_id=22044188]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9454274, 250, 451.4262)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.26714, 250, 1460.2717)
 
 [node name="Camera3D" type="Camera3D" parent="CameraController" unique_id=1978598393]
 transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 300, 300)
@@ -43,4 +43,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_twpsu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GroundSurface" unique_id=220172918]
 shape = SubResource("BoxShape3D_twpsu")
 
-[node name="Unit" parent="." unique_id=796826453 instance=ExtResource("2_twpsu")]
+[node name="Builder" parent="." unique_id=1717507233 instance=ExtResource("2_twpsu")]
+
+[node name="RTSController" type="RTSController" parent="." unique_id=143601766]

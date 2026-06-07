@@ -1,6 +1,11 @@
-#include "camera/camera_controller.h"
+#include "camera/camera_controller.hpp"
 #include "root/root.hpp"
+#include "rts_controller/rts_controller.hpp"
+
 #include "ground_surface/ground_surface.h"
+
+#include "game_object/unit/unit.hpp"
+#include "game_object/unit/builder/builder.hpp"
 
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/godot.hpp>
@@ -11,9 +16,21 @@ void initialize_camera_controller_module(ModuleInitializationLevel p_level) {
 		return;
 	}
 
+    /**
+     * Controller and main node
+     */
     ClassDB::register_class<Root>();
     ClassDB::register_class<CameraController>();
+    ClassDB::register_class<RTSController>();
+    /**
+     * World
+     */
     ClassDB::register_class<GroundSurface>();
+    /**
+     * Units
+     */
+    ClassDB::register_class<unit::Unit>();
+    ClassDB::register_class<unit::Builder>();
 }
 
 void uninitialize_camera_controller_module(ModuleInitializationLevel p_level) {

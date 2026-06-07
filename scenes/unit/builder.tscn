@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dkgla0knyoqtt"]
+
+[ext_resource type="ArrayMesh" uid="uid://dhhfooiovbryo" path="res://textures/Gorilla_ZSpheres.obj" id="1_ol3mg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yimfk"]
+
+[node name="Builder" type="Builder" unique_id=1717507233]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=19630123]
+mesh = ExtResource("1_ol3mg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=307816461]
+shape = SubResource("BoxShape3D_yimfk")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2066504996]

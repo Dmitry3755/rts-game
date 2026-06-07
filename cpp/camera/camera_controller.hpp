@@ -19,6 +19,7 @@ namespace godot
 		void _process(double delta);
 		void _input(const Ref<InputEvent>& event);
 
+		Camera3D* getCamera3D() { return camera; }
 	protected:
 		static void _bind_methods();
 

@@ -4,8 +4,6 @@
 
 using namespace godot;
 
-#pragma region Root
-
 Root::Root() {}
 
 Root::~Root() {}
