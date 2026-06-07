@@ -1,4 +1,6 @@
-#include "root.h"
+#include "root.hpp"
+#include "../src/config_manager.hpp"
+#include "../display.hpp"
 
 using namespace godot;
 
@@ -12,67 +14,18 @@ void Root::_bind_methods() {}
 
 void Root::_enter_tree()
 {
-    auto& display = Display::get();
-    display._init_display_info_();
-    UtilityFunctions::print("Root and display init");
+    auto configManager = core::ConfigManager::get();
+    configManager.load();
+    auto display = core::Display::get();
+    display._init_display_();
 }
 
 void Root::_process(double delta)
 {
 }
 
-void Root::getScreenInfo()
+void Root::_ready()
 {
-
+    //auto& display = Display::get();
+    //display._init_display_();
 }
-
-#pragma endregion Root
-
-#pragma region Display
-
-Root::Display::Display()
-{
-    displayServer = DisplayServer::get_singleton();
-    UtilityFunctions::print("Display ctor: ", displayServer);
-}
-
-void Root::Display::_init_display_info_()
-{
-    if (!displayServer)
-    {
-        UtilityFunctions::print("Root::Display::displayServer - ref is nullptr");
-        return;
-    }
-    _on_screen_maximized_();
-
-    Vector2i screenSize = displayServer->screen_get_size();
-    displayServer->window_set_size(screenSize);
-    _update_display_info_();
-}
-
-void Root::Display::setWindowMode(DisplayServer::WindowMode mode)
-{
-    if (!displayServer)
-    {
-        UtilityFunctions::print("Root::Display::displayServer - ref is nullptr");
-        return;
-    }
-
-    displayServer->window_set_mode(mode);
-    _update_display_info_();
-}
-
-void Root::Display::setDisplayInfo()
-{
-    if (!displayServer)
-    {
-        UtilityFunctions::print("Root::Display::displayServer - ref is nullptr");
-        return;
-    }
-
-    auto displaySize = displayServer->screen_get_size();
-    displayInfo.width = displaySize.x;
-    displayInfo.height = displaySize.y;
-}
-
-#pragma endregion Display

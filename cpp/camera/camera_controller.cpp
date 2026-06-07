@@ -10,7 +10,7 @@
 
 using namespace godot;
 
-constexpr int EDGE_SIZE = 0;
+constexpr int EDGE_SIZE = 10;
 constexpr float MAX_CAMERA_HEIGHT = 300.0f;
 constexpr float MIN_CAMERA_HEIGHT = 10.0f;
 

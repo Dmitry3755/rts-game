@@ -1,5 +1,5 @@
 #include "camera/camera_controller.h"
-#include "root/root.h"
+#include "root/root.hpp"
 #include "ground_surface/ground_surface.h"
 
 #include <godot_cpp/core/class_db.hpp>
