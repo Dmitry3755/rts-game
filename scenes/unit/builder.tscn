@@ -3,13 +3,19 @@
 [ext_resource type="ArrayMesh" uid="uid://dhhfooiovbryo" path="res://textures/Gorilla_ZSpheres.obj" id="1_ol3mg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yimfk"]
+size = Vector3(1, 1.5, 1.3)
 
 [node name="Builder" type="Builder" unique_id=1717507233]
+platform_floor_layers = 4278190081
+platform_wall_layers = 1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=19630123]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=157705664]
 mesh = ExtResource("1_ol3mg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=307816461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_yimfk")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2066504996]
+debug_enabled = true
+debug_path_custom_color = Color(1, 0.01999998, 0.01999998, 1)

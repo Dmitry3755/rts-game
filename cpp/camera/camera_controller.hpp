@@ -31,7 +31,7 @@ namespace godot
 		float moveSpeed = 40.0f;
 		float rotationSpeed = 1.5f;
 
-		int zoomSpeed = 10;
+		int zoomSpeed = 25;
 	};
 
 }

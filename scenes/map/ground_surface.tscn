@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cufn4fx6m7dxh"]
+
+[ext_resource type="Texture2D" uid="uid://cf37t40lew8be" path="res://assets/rocky_terrain_02_diff_4k.jpg" id="1_65fol"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7up8o"]
+size = Vector2(100, 100)
+
+[sub_resource type="Skin" id="Skin_j5px3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twpsu"]
+albedo_texture = ExtResource("1_65fol")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_65fol"]
+size = Vector3(100, 0.1, 100)
+
+[node name="MeshInstance3D" type="MeshInstance3D" unique_id=1687573920]
+custom_aabb = AABB(-50, 0, -50, 100, 0.1, 100)
+lod_bias = 0.001
+mesh = SubResource("PlaneMesh_7up8o")
+skin = SubResource("Skin_j5px3")
+surface_material_override/0 = SubResource("StandardMaterial3D_twpsu")
+
+[node name="GroundSurface" type="GroundSurface" parent="." unique_id=763157627]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundSurface" unique_id=1030607555]
+shape = SubResource("BoxShape3D_65fol")

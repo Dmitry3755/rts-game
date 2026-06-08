@@ -31,10 +31,9 @@ namespace unit
         int health;
         int armor;
         int damage;
-        int velocity;
-        bool selected = false;
+        float speed = 5.0f;
 
-        Vector3 position;
+        bool selected = false;
 
         NavigationAgent3D *navigationAgent = nullptr;
         MeshInstance3D *mesh = nullptr;

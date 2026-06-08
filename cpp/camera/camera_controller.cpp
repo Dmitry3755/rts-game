@@ -11,7 +11,7 @@
 using namespace godot;
 
 constexpr int EDGE_SIZE = 10;
-constexpr float MAX_CAMERA_HEIGHT = 300.0f;
+constexpr float MAX_CAMERA_HEIGHT = 500.0f;
 constexpr float MIN_CAMERA_HEIGHT = 10.0f;
 
 void CameraController::_bind_methods()
@@ -37,9 +37,9 @@ void CameraController::_ready()
     }
 
     camera->set_current(true);
-    set_position(Vector3(0, 250, 250));
+    set_position(Vector3(0, MAX_CAMERA_HEIGHT, MAX_CAMERA_HEIGHT));
 
-    camera->set_position(Vector3(0, 300, 300));
+    camera->set_position(Vector3(0, MAX_CAMERA_HEIGHT, MAX_CAMERA_HEIGHT));
     camera->look_at(Vector3(0, 0, 0));
 
     UtilityFunctions::print("CameraController init");

@@ -10,7 +10,24 @@ namespace unit
 
     void Unit::_process(double delta) {}
 
-    void Unit::_physics_process(double delta) {}
+    void Unit::_physics_process(double delta)
+    {
+        if (!navigationAgent)
+            return;
+
+        if (navigationAgent->is_navigation_finished())
+        {
+            set_velocity(Vector3());
+            move_and_slide();
+            return;
+        }
+
+        Vector3 next_waypoint = navigationAgent->get_next_path_position();
+        Vector3 direction = (next_waypoint - get_global_position()).normalized();
+
+        set_velocity(direction * speed);
+        move_and_slide();
+    }
 
     void Unit::_bind_methods() {}
 
@@ -19,8 +36,6 @@ namespace unit
         if (!navigationAgent)
             return;
 
-        position = target;
-        navigationAgent->set_target_position(position);
-        UtilityFunctions::print("Move command: ", position);
+        navigationAgent->set_target_position(target);
     }
 }
