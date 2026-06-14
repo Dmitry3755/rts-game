@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../utils/health_bar.hpp"
+
 #include <godot_cpp/classes/character_body3d.hpp>
 #include <godot_cpp/classes/navigation_agent3d.hpp>
 #include <godot_cpp/classes/mesh_instance3d.hpp>
@@ -28,9 +30,9 @@ namespace unit
         static void _bind_methods();
 
     protected:
-        int health;
-        int armor;
-        int damage;
+        double health = 100.0;
+        int armor = 0;
+        int damage = 0;
         float speed = 5.0f;
 
         bool selected = false;

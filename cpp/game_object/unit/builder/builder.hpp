@@ -1,4 +1,5 @@
 #include "../unit.hpp"
+#include "../../utils/health_bar.hpp"
 
 namespace unit
 {

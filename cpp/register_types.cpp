@@ -6,6 +6,7 @@
 
 #include "game_object/unit/unit.hpp"
 #include "game_object/unit/builder/builder.hpp"
+#include "game_object/utils/health_bar.hpp"
 
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/godot.hpp>
@@ -31,6 +32,10 @@ void initialize_camera_controller_module(ModuleInitializationLevel p_level) {
      */
     ClassDB::register_class<unit::Unit>();
     ClassDB::register_class<unit::Builder>();
+    /**
+     * Other
+     */
+    ClassDB::register_class<ui::HealthBar>();
 }
 
 void uninitialize_camera_controller_module(ModuleInitializationLevel p_level) {
