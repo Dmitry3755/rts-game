@@ -24,8 +24,9 @@ namespace unit
         auto *sprite = get_node<Sprite3D>("Sprite3D");
         navigationAgent = get_node<NavigationAgent3D>("NavigationAgent3D");
         mesh = get_node<MeshInstance3D>("MeshInstance3D");
+        selectionDecal = get_node<Decal>("Decal");
 
-        if (!healthBar || !sprite || !viewport || !navigationAgent || !mesh)
+        if (!healthBar || !sprite || !viewport || !navigationAgent || !mesh || !selectionDecal)
         {
             UtilityFunctions::print("Builder create error"); 
             return;
@@ -34,6 +35,7 @@ namespace unit
         healthBar->setValue(BUILDER_HEALTH_MIN_DEFAULT, BUILDER_HEALTH_MAX_DEFAULT, BUILDER_HEALTH_MAX_DEFAULT);
         sprite->set_texture(Ref<Texture2D>(viewport->get_texture()));
         sprite->set_position(Vector3(0.0, 2.0, 0.0));
+        selectionDecal->set_visible(false);
     }
 
     void Builder::_physics_process(double delta) { inhereted::_physics_process(delta); }

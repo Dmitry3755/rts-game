@@ -3,6 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dhhfooiovbryo" path="res://textures/Gorilla_ZSpheres.obj" id="1_ol3mg"]
 [ext_resource type="Texture2D" uid="uid://cblh5esrhx80" path="res://textures/2d/health_under.png" id="2_rnwqv"]
 [ext_resource type="Texture2D" uid="uid://qu25ui8f6u3m" path="res://textures/2d/health_progress.png" id="3_5iukk"]
+[ext_resource type="Texture2D" uid="uid://y8iq7dcoh2wi" path="res://textures/utils/focus_stroke_line.png" id="4_5iukk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yimfk"]
 size = Vector3(1, 1.5, 1.3)
@@ -11,8 +12,8 @@ size = Vector3(1, 1.5, 1.3)
 viewport_path = NodePath("SubViewport")
 
 [node name="Builder" type="Builder" unique_id=1717507233]
-platform_floor_layers = 4278190081
-platform_wall_layers = 1
+platform_floor_layers = 4278190082
+platform_wall_layers = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=157705664]
 mesh = ExtResource("1_ol3mg")
@@ -22,8 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_yimfk")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2066504996]
-debug_enabled = true
-debug_path_custom_color = Color(1, 0.01999998, 0.01999998, 1)
+debug_path_custom_point_size = 0.0
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=859310152]
 transparent_bg = true
@@ -33,7 +33,7 @@ render_target_update_mode = 4
 [node name="HealthBar" type="HealthBar" parent="SubViewport" unique_id=710339456]
 offset_right = 150.0
 offset_bottom = 50.0
-value = 75.0
+value = 100.0
 texture_under = ExtResource("2_rnwqv")
 texture_progress = ExtResource("3_5iukk")
 
@@ -41,3 +41,8 @@ texture_progress = ExtResource("3_5iukk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_rnwqv")
+
+[node name="Decal" type="Decal" parent="." unique_id=1222050233]
+size = Vector3(1.5, 1.5, 1.5)
+texture_albedo = ExtResource("4_5iukk")
+cull_mask = 1

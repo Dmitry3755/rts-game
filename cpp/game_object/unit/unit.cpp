@@ -35,7 +35,6 @@ namespace unit
     {
         if (!navigationAgent)
             return;
-
         navigationAgent->set_target_position(target);
     }
 }

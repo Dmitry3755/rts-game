@@ -30,6 +30,4 @@ namespace core
         
         godot::DisplayServer::WindowMode mode = godot::DisplayServer::WindowMode::WINDOW_MODE_MAXIMIZED;
     };
-    
-
 }

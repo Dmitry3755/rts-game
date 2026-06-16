@@ -71,32 +71,25 @@ namespace godot
             selectedUnit->unselect();
 
         selectedUnit = unit;
-
         selectedUnit->select();
-
         UtilityFunctions::print("Unit selected");
     }
 
     void RTSController::moveSelectedUnit(const Vector2 &mousePos)
     {
-        if (!selectedUnit)
-            return;
-
-        if (!camera)
+        if (!selectedUnit || !camera)
             return;
 
         Vector3 from = camera->project_ray_origin(mousePos);
-
         Vector3 to = from + camera->project_ray_normal(mousePos) * 5000.0f;
-        Ref<PhysicsRayQueryParameters3D> query = PhysicsRayQueryParameters3D::create(from, to);
 
+        Ref<PhysicsRayQueryParameters3D> query = PhysicsRayQueryParameters3D::create(from, to);
         Dictionary result = get_viewport()->get_world_3d()->get_direct_space_state()->intersect_ray(query);
 
         if (result.is_empty())
             return;
 
         Vector3 position = result["position"];
-
         selectedUnit->moveTo(position);
     }
 }

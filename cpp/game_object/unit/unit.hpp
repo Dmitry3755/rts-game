@@ -5,6 +5,7 @@
 #include <godot_cpp/classes/character_body3d.hpp>
 #include <godot_cpp/classes/navigation_agent3d.hpp>
 #include <godot_cpp/classes/mesh_instance3d.hpp>
+#include <godot_cpp/classes/decal.hpp>
 
 using namespace godot;
 
@@ -22,9 +23,10 @@ namespace unit
         virtual void _process(double delta) override;
         virtual void _physics_process(double delta) override;
 
-        void select() { selected = true; }
-        void unselect() { selected = false; }
         void moveTo(const godot::Vector3 &target);
+
+        void select() { selected = true; selectionDecal->set_visible(true); }
+        void unselect() { selected = false; selectionDecal->set_visible(false);  }
 
     protected:
         static void _bind_methods();
@@ -37,7 +39,8 @@ namespace unit
 
         bool selected = false;
 
-        NavigationAgent3D *navigationAgent = nullptr;
-        MeshInstance3D *mesh = nullptr;
+        NavigationAgent3D* navigationAgent = nullptr;
+        MeshInstance3D* mesh = nullptr;
+        Decal* selectionDecal = nullptr;
     };
 }
